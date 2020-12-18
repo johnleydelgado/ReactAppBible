@@ -5,15 +5,25 @@ import {
 	Text,
 	TextInput,
 	TouchableWithoutFeedback,
+	Keyboard,
 } from "react-native";
 import TextInputFields from "../../component/TextInputFields";
 import LoginButtons from "../../component/LoginButtons";
-function Login(props) {
+import { COLORS } from '../../constant/colors'
+import { FontAwesome } from '@expo/vector-icons';
+
+function Login({ navigation }) {
+
+	const loginSuccess = () => {
+		navigation.navigate('HomeTab');
+	}
+
 	return (
-		<TouchableWithoutFeedback>
+		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			<View style={styles.container}>
 				<View style={styles.header}>
 					<View style={styles.header}>
+						<FontAwesome name='book' size={100} color={COLORS.labelColor} />
 						<Text style={styles.heade_fontStyle}>Sign In</Text>
 					</View>
 				</View>
@@ -23,7 +33,7 @@ function Login(props) {
 						<TextInputFields placeholder="Password" />
 					</View>
 					<View style={styles.content_buttonStyle}>
-						<LoginButtons title="Submit" />
+						<LoginButtons title="Submit" goToHome={loginSuccess} />
 						<LoginButtons title="Register" />
 					</View>
 				</View>
@@ -39,15 +49,15 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		flex: 4,
-		backgroundColor: "darkorange",
+		backgroundColor: COLORS.mainColor,
 		borderBottomRightRadius: 75,
 		justifyContent: "center",
 		alignItems: "center",
 	},
 	heade_fontStyle: {
 		fontSize: 50,
-		fontFamily: "Helvetica",
-		fontWeight: "bold",
+		fontFamily: "OpenSansB",
+		color: 'white'
 	},
 	header_inner: {},
 	content: {
