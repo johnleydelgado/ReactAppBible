@@ -9,21 +9,20 @@ import {
 } from "react-native";
 import TextInputFields from "../../component/TextInputFields";
 import LoginButtons from "../../component/LoginButtons";
-import { COLORS } from '../../constant/colors'
-import { FontAwesome } from '@expo/vector-icons';
+import { COLORS } from "../../constant/colors";
+import { FontAwesome } from "@expo/vector-icons";
 
 function Login({ navigation }) {
-
 	const loginSuccess = () => {
-		navigation.navigate('HomeTab');
-	}
+		navigation.navigate("HomeTab");
+	};
 
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			<View style={styles.container}>
 				<View style={styles.header}>
 					<View style={styles.header}>
-						<FontAwesome name='book' size={100} color={COLORS.labelColor} />
+						<FontAwesome name="book" size={100} color={COLORS.labelColor} />
 						<Text style={styles.heade_fontStyle}>Sign In</Text>
 					</View>
 				</View>
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
 	heade_fontStyle: {
 		fontSize: 50,
 		fontFamily: "OpenSansB",
-		color: 'white'
+		color: "white",
 	},
 	header_inner: {},
 	content: {
